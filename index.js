@@ -18,6 +18,8 @@ app.use(session({ secret: 'passport-tutorial', cookie: { maxAge: 60000 }, resave
 mongoose.connect('mongodb://localhost:27017/showcase')
 
 require('./models/Users')
+require('./models/Arts')
+
 require('./passport/setup');
 
 app.use(require('./routes'));

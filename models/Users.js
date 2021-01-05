@@ -18,6 +18,7 @@ const UsersSchema = new Schema({
         required: true,
         unique: true,
       },
+      imageUrl: String,
       hash: String,
       salt: String,
 })
