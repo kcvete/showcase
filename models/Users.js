@@ -51,4 +51,13 @@ UsersSchema.methods.setPassword = function(password) {
       token: this.generateJWT(),
     };
   };
+  UsersSchema.methods.toInfo = function() {
+    return {
+      _id: this._id,
+      email: this.email,
+      firstName: this.firstName, 
+      lastName: this.lastName,
+      imageUrl: this.imageUrl
+    };
+  };
 module.exports = Users = mongoose.model("Users", UsersSchema);

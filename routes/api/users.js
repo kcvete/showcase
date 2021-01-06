@@ -77,5 +77,19 @@ router.post('/', auth.optional, (req, res, next) => {
 				return res.json({ user: user.toAuthJSON() });
 			});
 	});
+
+	router.get('/', auth.optional, (req, res, next) => {	
+		return Users.find()
+			.then((user) => {
+				user = user.map(el => {
+					return el.toInfo()
+				})
+				if(!user) {
+					return res.sendStatus(400);
+				}
+	
+				return res.json({ users: user });
+			});
+	});
 	
 	module.exports = router;

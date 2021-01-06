@@ -19,20 +19,20 @@ router.put('/:id', auth.required, (req, res, next) => {
     .then((art) => res.json({ art }));
 });
 
-router.get('/', auth.required, (req, res, next) => {
+router.get('/', auth.optional, (req, res, next) => {
     Arts.find()
     .then((art) => res.json({ art }));
 });
 
-router.get('/:id', auth.required, (req, res, next) => {;
+router.get('/:id', auth.optional, (req, res, next) => {;
     Arts.findOne({_id: req.params.id})
     .then((art) => res.json(art));
 });
-router.get('/user/:userID/', auth.required, (req, res, next) => {
+router.get('/user/:userID/', auth.optional, (req, res, next) => {
     Arts.find({userID: req.params.userID})
     .then((art) => res.json(art));
 });
-router.get('/user/:userID/:id', auth.required, (req, res, next) => {
+router.get('/user/:userID/:id', auth.optional, (req, res, next) => {
     Arts.findOne({_id: req.params.id, userID: req.params.userID})
     .then((art) => res.json(art));
 });

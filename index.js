@@ -24,7 +24,7 @@ require('./passport/setup');
 
 app.use(require('./routes'));
 
-const port = 3000;
+const port = 5000;
 
 app.use((err, req, res) => {
     res.status(err.status || 500);
